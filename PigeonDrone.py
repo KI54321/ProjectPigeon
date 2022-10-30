@@ -16,25 +16,6 @@ class PigeonDrone:
         
         PigeonFirebase.PigeonFirebase.pigeonAuth()
         
-        PigeonDrone.startMotors()
-        
-    @staticmethod
-    def startMotors():
-    #     while pigeon.is_armable==False:
-    #          time.sleep(1)
-        print("Pigeon is armed")
-        
-        PigeonDrone.pigeon.armed=True
-        PigeonDrone.pigeon.simple_takeoff(0.5)
-        #setPigeonVelocity(10, 10, 10, 1)
-        
-        #pigeon.mode = VehicleMode("LAND")
-      #  while True:
-            
-        #pigeon.close()
-    @staticmethod
-    def stopMotors():
-        PigeonDrone.pigeon.armed=False
 
     @staticmethod
     def setPigeonAlt(y):
