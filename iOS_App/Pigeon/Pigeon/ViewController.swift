@@ -43,7 +43,6 @@ class ViewController: UIViewController {
         case takeoff = "Takeoff"
         case land = "Land"
         case returnToHome = "Return to Home"
-
     }
     override func viewDidLoad() {
         super.viewDidLoad()
