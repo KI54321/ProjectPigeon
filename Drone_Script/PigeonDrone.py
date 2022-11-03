@@ -25,12 +25,21 @@ class PigeonDrone:
        
         #PigeonDrone.pigeon.send_mavlink(pigeonVelocityCommand)
         #PigeonDrone.pigeon.flush()
-        
+    @staticmethod
     def updatePigeonVelocities(x, y, z):
         if x != 0 or y != 0 or z != 0:
             pigeonVelocityCommand = PigeonDrone.pigeon.message_factory.set_position_target_local_ned_encode(0, 0, 0, mavutil.mavlink.MAV_FRAME_BODY_OFFSET_NED, 0b0000111111000111, 0, 0, 0, x*3, y*3, z*3, 0, 0, 0, 0, 0)
             PigeonDrone.pigeon.send_mavlink(pigeonVelocityCommand)
             PigeonDrone.pigeon.flush()
+            
+    @staticmethod
+    def updatePigeonYawHeading(relPigeonDegrees):
+        pigeonYawCW = 1
+        if (relPigeonDegrees < 0):
+            pigeonYawCW = -1
+        pigeonYawCommand = PigeonDrone.pigeon.message_factory.command_long_encode(0, 0, mavutil.mavlink.MAV_CMD_CONDITION_YAW, 0, abs(relPigeonDegrees), 0, pigeonYawCW, 1, 0, 0, 0)
+        PigeonDrone.pigeon.send_mavlink(pigeonYawCommand)
+        PigeonDrone.pigeon.flush()
         
 #pigeon = startPigeonConnect()
 #startMotors()

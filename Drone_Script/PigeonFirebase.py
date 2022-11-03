@@ -48,7 +48,7 @@ class PigeonFirebase:
                 print("Boom")
 
             else:
-                
+                PigeonDrone.PigeonDrone.updatePigeonYawHeading(pigeonValues.get("yaw"));
                 PigeonDrone.PigeonDrone.updatePigeonVelocities(pigeonValues.get("x_vel"), pigeonValues.get("y_vel"), pigeonValues.get("z_vel"))
                     
                 print("Read Values")
