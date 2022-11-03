@@ -9,6 +9,7 @@ import UIKit
 import GameKit
 import FirebaseDatabase
 import MapKit
+import WebKit
 
 class ViewController: UIViewController {
     
@@ -25,6 +26,9 @@ class ViewController: UIViewController {
     var pigeonLeftJoypadTimer = Timer()
     var pigeonRightJoypadTimer = Timer()
     var pigeonControls = [String:Any]()
+    
+    @IBOutlet weak var pigeonWebCam: WKWebView!
+    
     
     @IBOutlet weak var pigeonActionButton: UIButton!
     @IBOutlet weak var deltaStackView: UIStackView!
@@ -56,6 +60,7 @@ class ViewController: UIViewController {
               
             }
         }
+        
         pigeonDatabaseReferenceLogs.observe(.value) { [self] oneLogsSnapshot in
             guard let pigeonDroneDataObserved = oneLogsSnapshot.value as? [String:Any] else { return }
             guard let airspeedData = pigeonDroneDataObserved["airspeed"] as? Double else { return }
@@ -77,7 +82,7 @@ class ViewController: UIViewController {
             map.addAnnotation(pigeonDroneAnnotation)
             
             
-            map.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: latData, longitude: longData), fromDistance: altitudeData<=100 ? altitudeData*5:altitudeData, pitch: 0, heading: 0), animated: true)
+            map.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: latData + 0.0001, longitude: longData), fromDistance: altitudeData<=100 ? altitudeData*5:altitudeData, pitch: 0, heading: 0), animated: true)
             
             if altitudeData >= 2 {
                 pigeonActionButtonOptions = [.land, .returnToHome]
@@ -96,6 +101,10 @@ class ViewController: UIViewController {
         
         airspeedAltGSStackView.layer.opacity = 0.7
         deltaStackView.layer.opacity = 0.7
+        
+        guard let pigeonWebURL = URL(string: "http://10.0.0.147:5000") else { return }
+
+        pigeonWebCam.load(URLRequest(url: pigeonWebURL))
     }
     
     @IBAction func pigeonAction(_ sender: UIButton) {
