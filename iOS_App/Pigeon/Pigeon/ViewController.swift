@@ -165,11 +165,19 @@ class ViewController: UIViewController {
                    
                 deltaZ.text = "Δ Z: \(String(format: "%.2f", Double(pigeonControllerY))) m/s"
 
+                // This is for turning the drone
+                guard let pigeonControllerX = pigeonVirtualController.controller?.extendedGamepad?.rightThumbstick.xAxis.value else { return }
+                
+                    pigeonControls["yaw"] = Double(pigeonControllerX)
+                    self.pigeonDatabaseReferenceControls.updateChildValues(["yaw": pigeonControls["yaw"]])
+                   
+
+                
                 
                 
 
             })
-            
+         
         }
         
     }
