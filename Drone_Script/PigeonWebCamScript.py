@@ -4,7 +4,7 @@ import cv2
 
     
 pigeonWebApp = Flask(__name__)
-pigeonWebVideoCam = cv2.VideoCapture(0)
+pigeonWebVideoCam = cv2.VideoCapture("https://pigeon-webcam-drone-local.herokuapp.com")
 
 @pigeonWebApp.route("/")
 def pigeonWebCamFlask():
