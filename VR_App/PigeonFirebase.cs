@@ -7,6 +7,18 @@ using OVRTouchSample;
 using TMPro;
 using Firebase;
 using Firebase.Database;
+using Mapbox.Platform.Cache;
+using Mapbox.Unity.Map.Interfaces;
+using Mapbox.Unity.Map.Strategies;
+using Mapbox.Unity.Map.TileProviders;
+using Mapbox.Utils;
+using System.Linq;
+using Mapbox.Unity.Utilities;
+using UnityEngine;
+using Mapbox.Map;
+using Mapbox.Unity.MeshGeneration.Factories;
+using Mapbox.Unity.MeshGeneration.Data;
+using System.Globalization;
 
 public class PigeonFirebase : MonoBehaviour
 {
@@ -27,17 +39,23 @@ public class PigeonFirebase : MonoBehaviour
     private string groundspeedData;
     private string modeData;
     private string altitudeData;
-
+    private double pigeonLat;
+    private double pigeonLong;
+    
     private Quaternion pigeonLocalRightRotation;
     private float pigeonLocalIndexTriggerUp;
     private float pigeonLocalHandTriggerDown;
     private Vector2 pigeonLocalThumbstick;
+
+
+    public Mapbox.Unity.Map.AbstractMap pigeonMapbox;
 
     private bool isPigeonFirebaseLoaded = false;
     // Start is called before the first frame update
     void Start()
     {
 
+// Only works with Arm_64 OS
         Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(pigeonFirebaseInitTask => {
             if (pigeonFirebaseInitTask.Result == Firebase.DependencyStatus.Available) {
 
@@ -55,7 +73,6 @@ public class PigeonFirebase : MonoBehaviour
             }
         });
 
-       
     }
 
     void PigeonLogsUpdated(object pigeonUpdate, ValueChangedEventArgs pigeonValueChanged) {
@@ -85,6 +102,13 @@ public class PigeonFirebase : MonoBehaviour
 
                         altitudeData = "Altitude: " + pigeonValueChangedValue.ToString() + " m";
                     }
+                    else if (pigeonValueChangedKey == "lat") {
+                        pigeonLat = (double) pigeonResultItem.Value;
+                    }
+                    else if (pigeonValueChangedKey == "long") {
+                        pigeonLong = (double) pigeonResultItem.Value;
+
+                    }
                 }
                  
             }
@@ -104,6 +128,7 @@ public class PigeonFirebase : MonoBehaviour
         float shouldActivateY = 0.00f; // Right/Left
         float shouldActivateZ = 0.00f; // Up/Down
         float shouldActivateYaw = 0.00f; // Rotate
+
 
         if (isPigeonFirebaseLoaded) {
    
@@ -153,7 +178,9 @@ public class PigeonFirebase : MonoBehaviour
         // Index clicked
         // go up change z
 
-        // index clicked + 
+        // index clicked +
+               pigeonMapbox.UpdateMap(new Vector2d(pigeonLat, pigeonLong));
+ 
 
     }
     // Called at a specific rate
