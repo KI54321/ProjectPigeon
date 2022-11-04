@@ -47,7 +47,7 @@ public class PigeonFirebase : MonoBehaviour
     private float pigeonLocalHandTriggerDown;
     private Vector2 pigeonLocalThumbstick;
 
-
+    public WebViewObject pigeonCameraWebview;
     public Mapbox.Unity.Map.AbstractMap pigeonMapbox;
 
     private bool isPigeonFirebaseLoaded = false;
@@ -65,13 +65,21 @@ public class PigeonFirebase : MonoBehaviour
                 pigeonDatabaseLogs = FirebaseDatabase.DefaultInstance.RootReference.Child("logs");
 
                 pigeonDatabaseLogs.ValueChanged += PigeonLogsUpdated;
+                
                 isPigeonFirebaseLoaded = true;
+
             }
             else {
                 Debug.Log("ERROR");
                 Debug.Log(pigeonFirebaseInitTask.Result);
             }
         });
+
+        // This is the web cam stream for Pigeon Drone
+                pigeonCameraWebview.Init();
+                pigeonCameraWebview.SetMargins(Screen.width/4, 60, Screen.width/4, (int) (Screen.height / 1.5));
+                pigeonCameraWebview.SetVisibility(true);
+                pigeonCameraWebview.LoadURL("http://10.0.0.47:5000");
 
     }
 
@@ -179,7 +187,7 @@ public class PigeonFirebase : MonoBehaviour
         // go up change z
 
         // index clicked +
-               pigeonMapbox.UpdateMap(new Vector2d(pigeonLat, pigeonLong));
+        pigeonMapbox.UpdateMap(new Vector2d(pigeonLat, pigeonLong));
  
 
     }
