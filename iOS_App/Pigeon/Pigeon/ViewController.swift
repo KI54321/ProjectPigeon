@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         case takeoff = "Takeoff"
         case land = "Land"
         case returnToHome = "Return to Home"
+        case kill = "Kill"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,14 +86,14 @@ class ViewController: UIViewController {
             map.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: latData + 0.0001, longitude: longData), fromDistance: altitudeData<=100 ? altitudeData*5:altitudeData, pitch: 0, heading: 0), animated: true)
             
             if altitudeData >= 2 {
-                pigeonActionButtonOptions = [.land, .returnToHome]
+                pigeonActionButtonOptions = [.land, .returnToHome, .kill]
                 pigeonActionButton.setTitle("Options", for: .normal)
 
             }
             else {
-                pigeonActionButtonOptions = [.takeoff]
+                pigeonActionButtonOptions = [.takeoff, .kill]
 
-                pigeonActionButton.setTitle("Takeoff", for: .normal)
+                pigeonActionButton.setTitle("Options", for: .normal)
 
             }
         }
@@ -109,7 +110,6 @@ class ViewController: UIViewController {
     
     @IBAction func pigeonAction(_ sender: UIButton) {
         
-        if pigeonActionButtonOptions.count > 1 {
             let pigeonActionAlert = UIAlertController(title: "Pigeon Actions", message: "Choose an option", preferredStyle: .actionSheet)
             pigeonActionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [self] onePigeonActionAlert in
                 self.dismiss(animated: true)
@@ -121,10 +121,7 @@ class ViewController: UIViewController {
             }
             
             present(pigeonActionAlert, animated: true)
-        }
-        else if pigeonActionButtonOptions.count == 1 {
-            pigeonActionButtonHandler(pigeonAction: pigeonActionButtonOptions[0])
-        }
+      
     }
     
     func pigeonActionButtonHandler(pigeonAction: PigeonActions) {
