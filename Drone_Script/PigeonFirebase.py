@@ -46,9 +46,12 @@ class PigeonFirebase:
                 PigeonFirebase.pigeonDatabaseControls.update({"action": ""})
 
                 print("Boom")
+            elif (pigeonValues.get("action")) == "Kill":
+                PigeonDrone.PigeonDrone.updatePigeonVelocities(0, 0, 0)
+                PigeonFirebase.pigeonDatabaseControls.update({"action": ""})
 
             else:
-                PigeonDrone.PigeonDrone.updatePigeonYawHeading(pigeonValues.get("yaw"));
+                PigeonDrone.PigeonDrone.updatePigeonYawHeading(pigeonValues.get("yaw"))
                 PigeonDrone.PigeonDrone.updatePigeonVelocities(pigeonValues.get("x_vel"), pigeonValues.get("y_vel"), pigeonValues.get("z_vel"))
                     
                 print("Read Values")
