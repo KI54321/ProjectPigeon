@@ -49,7 +49,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xox-H5-jHh">
                                         <rect key="frame" x="0.0" y="97" width="173.66666666666666" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="TAKEOFF"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Options"/>
                                         <connections>
                                             <action selector="pigeonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LzV-TC-nZY"/>
                                         </connections>
@@ -58,7 +58,7 @@
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hYm-yW-Zic">
-                                <rect key="frame" x="720" y="14.999999999999993" width="103.33333333333337" height="105.33333333333331"/>
+                                <rect key="frame" x="720" y="15" width="103.33333333333337" height="147.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Δ X: -0.5 m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Yq-Wcn">
                                         <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="20.333333333333332"/>
@@ -84,10 +84,21 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-uD-GKo">
+                                        <rect key="frame" x="0.0" y="113.33333333333333" width="103.33333333333331" height="34.333333333333329"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Kill">
+                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="killSwitch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tza-Gf-1O4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </stackView>
-                            <wkWebView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-zg-hFl">
+                            <wkWebView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-zg-hFl">
                                 <rect key="frame" x="261" y="15" width="384" height="159"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -130,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169.90521327014218" y="-46.153846153846153"/>
+            <point key="canvasLocation" x="-6" y="-326"/>
         </scene>
     </scenes>
     <resources>
@@ -139,6 +150,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

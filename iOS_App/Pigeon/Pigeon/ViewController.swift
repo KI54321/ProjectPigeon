@@ -83,17 +83,15 @@ class ViewController: UIViewController {
             map.addAnnotation(pigeonDroneAnnotation)
             
             
-            map.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: latData + 0.0001, longitude: longData), fromDistance: altitudeData<=100 ? altitudeData*5:altitudeData, pitch: 0, heading: 0), animated: true)
+            map.setCamera(MKMapCamera(lookingAtCenter: CLLocationCoordinate2D(latitude: latData, longitude: longData), fromDistance: altitudeData<=100 ? altitudeData*5:altitudeData, pitch: 0, heading: 0), animated: true)
             
             if altitudeData >= 2 {
-                pigeonActionButtonOptions = [.land, .returnToHome, .kill]
-                pigeonActionButton.setTitle("Options", for: .normal)
+                pigeonActionButtonOptions = [.land, .returnToHome]
 
             }
             else {
-                pigeonActionButtonOptions = [.takeoff, .kill]
+                pigeonActionButtonOptions = [.takeoff]
 
-                pigeonActionButton.setTitle("Options", for: .normal)
 
             }
         }
@@ -108,6 +106,17 @@ class ViewController: UIViewController {
         pigeonWebCam.load(URLRequest(url: pigeonWebURL))
     }
     
+    @IBAction func killSwitch(_ sender: UIButton) {
+        let pigeonActionAlert = UIAlertController(title: "Are you sure you want to kill the drone?", message: "The drone will fall out of the sky immediately.", preferredStyle: .actionSheet)
+        pigeonActionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [self] onePigeonActionAlert in
+            self.dismiss(animated: true)
+        }))
+        pigeonActionAlert.addAction(UIAlertAction(title: "Kill", style: .destructive, handler: { [self] onePigeonActionAlert in
+            pigeonActionButtonHandler(pigeonAction: .kill)
+        }))
+        
+        present(pigeonActionAlert, animated: true)
+    }
     @IBAction func pigeonAction(_ sender: UIButton) {
         
             let pigeonActionAlert = UIAlertController(title: "Pigeon Actions", message: "Choose an option", preferredStyle: .actionSheet)
@@ -127,7 +136,6 @@ class ViewController: UIViewController {
     func pigeonActionButtonHandler(pigeonAction: PigeonActions) {
         pigeonDatabaseReferenceControls.updateChildValues(["action":pigeonAction.rawValue])
 
-        pigeonActionButtonOptions.removeAll()
         
     }
     override func viewDidAppear(_ animated: Bool) {
