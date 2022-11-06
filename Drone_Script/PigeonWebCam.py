@@ -13,13 +13,14 @@ def pigeonWebCamFlask():
 def pigeonWebCamGen():
     while True:
         pigeonSuccessful, pigeonWebFrame = pigeonWebVideoCam.read()
-        cv2.imwrite("pigeonFrame.jpg", pigeonWebFrame)
-        yield(b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + open("pigeonFrame.jpg", "rb").read() + b'\r\n')
+        if pigeonSuccessful:
+            cv2.imwrite("pigeonFrame.jpg", pigeonWebFrame)
+            yield(b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + open("pigeonFrame.jpg", "rb").read() + b'\r\n')
 
 @app.route("/pigeonVideoFeed")
 def pigeonVideoFeed():
     return Response(pigeonWebCamGen(), mimetype="multipart/x-mixed-replace; boundary=frame")
 
-if __name__ == "__main__" {
-    app.run(host="10.0.0.47")
-}
+if __name__ == "__main__":
+    app.run(host="10.0.0.147")
+

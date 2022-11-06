@@ -33,6 +33,12 @@ class PigeonDrone:
             PigeonDrone.pigeon.flush()
             
     @staticmethod
+    def startPigeonKillSwitch():
+        pigeonKillCommand = PigeonDrone.pigeon.message_factory.command_long_encode(0, 0, mavutil.mavlink.MAV_CMD_DO_FLIGHTTERMINATION, 0, 1, 0, 0, 0, 0, 0, 0)
+        PigeonDrone.pigeon.send_mavlink(pigeonKillCommand)
+        PigeonDrone.pigeon.flush()
+        
+    @staticmethod
     def updatePigeonYawHeading(relPigeonDegrees):
         pigeonYawCW = 1
         if (relPigeonDegrees < 0):

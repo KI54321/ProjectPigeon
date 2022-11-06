@@ -18,9 +18,9 @@ class PigeonFirebase:
         PigeonFirebase.pigeonDatabaseControls = db.reference("controls")
         PigeonFirebase.pigeonDatabaseLogs = db.reference("logs")
 
-        PigeonDrone.PigeonDrone.pigeon.parameters.add_attribute_listener("*", PigeonFirebase.startPigeonLogs)
+        #PigeonDrone.PigeonDrone.pigeon.parameters.add_attribute_listener("*", PigeonFirebase.startPigeonLogs)
         #PigeonFirebase.pigoneDatabaseControls.update({"altitude": PigeonDrone.PigeonDrone.pigeon.location.global_relative_frame.alt})
-        
+        _thread.start_new_thread(PigeonFirebase.startPigeonLogs, ())
         _thread.start_new_thread(PigeonFirebase.handlePigeonMovements, ())
         print("WrotePigeon Monitering Database")
         
@@ -47,7 +47,7 @@ class PigeonFirebase:
 
                 print("Boom")
             elif (pigeonValues.get("action")) == "Kill":
-                PigeonDrone.PigeonDrone.updatePigeonVelocities(0, 0, 0)
+                PigeonDrone.PigeonDrone.startPigeonKillSwitch()
                 PigeonFirebase.pigeonDatabaseControls.update({"action": ""})
 
             else:
@@ -56,9 +56,11 @@ class PigeonFirebase:
                     
                 print("Read Values")
             time.sleep(0.5)
-
-    def startPigeonLogs(self, pigeonParamName, pigeonParamValue):
-        
-        pigeonLocData = PigeonDrone.PigeonDrone.pigeon.location.global_relative_frame
-        print(PigeonDrone.PigeonDrone.pigeon.attitude)
-        PigeonFirebase.pigeonDatabaseLogs.update({"lastUpdateDate": str(datetime.datetime.now()), "mode": PigeonDrone.PigeonDrone.pigeon.mode.name, "pitch": PigeonDrone.PigeonDrone.pigeon.attitude.pitch, "yaw": PigeonDrone.PigeonDrone.pigeon.attitude.yaw, "roll": PigeonDrone.PigeonDrone.pigeon.attitude.roll, "airspeed": PigeonDrone.PigeonDrone.pigeon.airspeed, "groundspeed": PigeonDrone.PigeonDrone.pigeon.groundspeed, "lastLink": PigeonDrone.PigeonDrone.pigeon.last_heartbeat, "altitude": pigeonLocData.alt, "lat": pigeonLocData.lat, "long": pigeonLocData.lon, "battery": PigeonDrone.PigeonDrone.pigeon.battery.level, "velocity": PigeonDrone.PigeonDrone.pigeon.velocity})
+    
+    @staticmethod
+    def startPigeonLogs():
+        while True: 
+            pigeonLocData = PigeonDrone.PigeonDrone.pigeon.location.global_relative_frame
+            print(PigeonDrone.PigeonDrone.pigeon.attitude)
+            PigeonFirebase.pigeonDatabaseLogs.update({"lastUpdateDate": str(datetime.datetime.now()), "mode": PigeonDrone.PigeonDrone.pigeon.mode.name, "pitch": PigeonDrone.PigeonDrone.pigeon.attitude.pitch, "yaw": PigeonDrone.PigeonDrone.pigeon.attitude.yaw, "roll": PigeonDrone.PigeonDrone.pigeon.attitude.roll, "airspeed": PigeonDrone.PigeonDrone.pigeon.airspeed, "groundspeed": PigeonDrone.PigeonDrone.pigeon.groundspeed, "lastLink": PigeonDrone.PigeonDrone.pigeon.last_heartbeat, "altitude": pigeonLocData.alt, "lat": pigeonLocData.lat, "long": pigeonLocData.lon, "battery": PigeonDrone.PigeonDrone.pigeon.battery.level, "velocity": PigeonDrone.PigeonDrone.pigeon.velocity})
+            time.sleep(0.5)
