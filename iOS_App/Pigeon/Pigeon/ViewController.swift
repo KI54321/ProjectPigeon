@@ -107,15 +107,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func killSwitch(_ sender: UIButton) {
-        let pigeonActionAlert = UIAlertController(title: "Are you sure you want to kill the drone?", message: "The drone will fall out of the sky immediately.", preferredStyle: .actionSheet)
-        pigeonActionAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [self] onePigeonActionAlert in
-            self.dismiss(animated: true)
-        }))
-        pigeonActionAlert.addAction(UIAlertAction(title: "Kill", style: .destructive, handler: { [self] onePigeonActionAlert in
-            pigeonActionButtonHandler(pigeonAction: .kill)
-        }))
         
-        present(pigeonActionAlert, animated: true)
+            pigeonActionButtonHandler(pigeonAction: .kill)
+
     }
     @IBAction func pigeonAction(_ sender: UIButton) {
         

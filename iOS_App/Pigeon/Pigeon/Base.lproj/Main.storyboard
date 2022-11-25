@@ -26,28 +26,28 @@
                                 <standardMapConfiguration key="preferredConfiguration" elevationStyle="realistic"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="FRh-pN-maa">
-                                <rect key="frame" x="13" y="15" width="173.66666666666666" height="131.33333333333334"/>
+                                <rect key="frame" x="13" y="15" width="174.66666666666666" height="131.33333333333334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude: 50 m" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2Z-1C-x4c">
-                                        <rect key="frame" x="0.0" y="0.0" width="173.66666666666666" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174.66666666666666" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Airspeed: 10 m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ0-Ck-v3h">
-                                        <rect key="frame" x="0.0" y="32.333333333333336" width="173.66666666666666" height="20.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="32.333333333333336" width="174.66666666666666" height="20.333333333333336"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groundspeed: 10 m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gsH-8Q-jxf">
-                                        <rect key="frame" x="0.0" y="64.666666666666671" width="173.66666666666666" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="64.666666666666671" width="174.66666666666666" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xox-H5-jHh">
-                                        <rect key="frame" x="0.0" y="97" width="173.66666666666666" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="97" width="174.66666666666666" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Options"/>
                                         <connections>
@@ -58,7 +58,7 @@
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hYm-yW-Zic">
-                                <rect key="frame" x="720" y="15" width="103.33333333333337" height="147.66666666666666"/>
+                                <rect key="frame" x="720" y="14.999999999999993" width="103.33333333333337" height="105.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Δ X: -0.5 m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Yq-Wcn">
                                         <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="20.333333333333332"/>
@@ -84,42 +84,49 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-uD-GKo">
-                                        <rect key="frame" x="0.0" y="113.33333333333333" width="103.33333333333331" height="34.333333333333329"/>
-                                        <color key="tintColor" systemColor="systemRedColor"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Kill">
-                                            <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="killSwitch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tza-Gf-1O4"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor"/>
                             </stackView>
                             <wkWebView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyg-zg-hFl">
-                                <rect key="frame" x="261" y="15" width="384" height="159"/>
+                                <rect key="frame" x="262" y="15" width="383" height="159"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vpj-uD-GKo">
+                                <rect key="frame" x="371" y="15" width="165" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="WE3-gd-8Za"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Kill">
+                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="killSwitch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tza-Gf-1O4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="iiQ-9d-bGx" secondAttribute="trailing" constant="-8" id="22t-ph-Rc0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vpj-uD-GKo" secondAttribute="bottom" constant="293" id="3i7-MF-oqt"/>
                             <constraint firstItem="wyg-zg-hFl" firstAttribute="leading" secondItem="FRh-pN-maa" secondAttribute="trailing" constant="74.333333333333343" id="4Ya-oE-m9a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FRh-pN-maa" secondAttribute="bottom" constant="209.66666666666666" id="513-jB-0Mh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wyg-zg-hFl" secondAttribute="bottom" constant="182" id="77P-Ae-p07"/>
                             <constraint firstItem="iiQ-9d-bGx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="MxO-aR-JFN"/>
+                            <constraint firstItem="Vpj-uD-GKo" firstAttribute="top" secondItem="wyg-zg-hFl" secondAttribute="top" id="NHZ-65-PtW"/>
                             <constraint firstItem="iiQ-9d-bGx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-6" id="PWb-Ca-bw4"/>
                             <constraint firstItem="hYm-yW-Zic" firstAttribute="leading" secondItem="wyg-zg-hFl" secondAttribute="trailing" constant="75" id="YgE-99-3iJ"/>
                             <constraint firstItem="wyg-zg-hFl" firstAttribute="top" secondItem="hYm-yW-Zic" secondAttribute="top" id="aYd-1t-HKq"/>
                             <constraint firstItem="FRh-pN-maa" firstAttribute="top" secondItem="wyg-zg-hFl" secondAttribute="top" id="cf3-AF-YcU"/>
                             <constraint firstItem="FRh-pN-maa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="13" id="dVJ-R8-RHf"/>
+                            <constraint firstItem="Vpj-uD-GKo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="371" id="fOu-5O-NSA"/>
+                            <constraint firstItem="Vpj-uD-GKo" firstAttribute="centerX" secondItem="wyg-zg-hFl" secondAttribute="centerX" id="jlJ-iu-WFl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hYm-yW-Zic" secondAttribute="trailing" constant="20.666666666666629" id="lfk-Ze-ZLw"/>
                             <constraint firstAttribute="bottom" secondItem="iiQ-9d-bGx" secondAttribute="bottom" id="qKU-84-gfs"/>
                         </constraints>
@@ -141,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="-326"/>
+            <point key="canvasLocation" x="-6.3981042654028437" y="-326.15384615384613"/>
         </scene>
     </scenes>
     <resources>
