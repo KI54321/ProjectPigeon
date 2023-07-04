@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>921775573578-7pqpb5t2o1ojr5461795khbuki5497uh.apps.googleusercontent.com</string>
+	<string>XXXX</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.921775573578-7pqpb5t2o1ojr5461795khbuki5497uh</string>
+	<string>XXXX</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDjk-dg6QyVD6ily3DHqiAuK9Aen6phWZk</string>
+	<string>XXXX</string>
 	<key>GCM_SENDER_ID</key>
-	<string>921775573578</string>
+	<string>XXXX</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.AKRSApps.Pigeon</string>
 	<key>PROJECT_ID</key>
-	<string>projectpigeon</string>
+	<string>XXXX</string>
 	<key>STORAGE_BUCKET</key>
-	<string>projectpigeon.appspot.com</string>
+	<string>XXXX</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:921775573578:ios:36bf7c1456005da6cbb4b3</string>
+	<string>XXXX</string>
 </dict>
 </plist>
