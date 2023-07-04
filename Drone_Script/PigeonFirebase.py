@@ -12,8 +12,8 @@ class PigeonFirebase:
     
     @staticmethod
     def pigeonAuth():
-        pigeonFirebaseCred = credentials.Certificate("/home/pigeon/Desktop/ProjectPigeon/Drone_Script/projectpigeon-firebase-adminsdk-ycgqq-fa6ff827eb.json")
-        firebase_admin.initialize_app(pigeonFirebaseCred, {"databaseURL": "https://projectpigeon-default-rtdb.firebaseio.com/"})
+        pigeonFirebaseCred = credentials.Certificate("XXXX")
+        firebase_admin.initialize_app(pigeonFirebaseCred, {"databaseURL": "XXXX"})
         
         PigeonFirebase.pigeonDatabaseControls = db.reference("controls")
         PigeonFirebase.pigeonDatabaseLogs = db.reference("logs")
