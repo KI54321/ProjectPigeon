@@ -79,7 +79,7 @@ public class PigeonFirebase : MonoBehaviour
                 pigeonCameraWebview.Init();
                 pigeonCameraWebview.SetMargins(Screen.width/4, 60, Screen.width/4, (int) (Screen.height / 1.5));
                 pigeonCameraWebview.SetVisibility(true);
-                pigeonCameraWebview.LoadURL("http://10.0.0.47:5000");
+                pigeonCameraWebview.LoadURL("XXXX");
 
     }
 
